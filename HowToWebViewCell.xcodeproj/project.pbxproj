@@ -11,6 +11,7 @@
 		928B224B1E7F071000B284C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928B224A1E7F071000B284C0 /* ViewController.swift */; };
 		928B224D1E7F071000B284C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 928B224C1E7F071000B284C0 /* Assets.xcassets */; };
 		928B22501E7F071000B284C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 928B224E1E7F071000B284C0 /* Main.storyboard */; };
+		928B22581E7F08A600B284C0 /* WebCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928B22571E7F08A600B284C0 /* WebCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,8 @@
 		928B224C1E7F071000B284C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		928B224F1E7F071000B284C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		928B22511E7F071000B284C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		928B22571E7F08A600B284C0 /* WebCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebCellView.swift; sourceTree = "<group>"; };
+		92ED093B1E7F31870091D084 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +39,7 @@
 		928B223C1E7F071000B284C0 = {
 			isa = PBXGroup;
 			children = (
+				92ED093B1E7F31870091D084 /* README.md */,
 				928B22471E7F071000B284C0 /* HowToWebViewCell */,
 				928B22461E7F071000B284C0 /* Products */,
 			);
@@ -54,6 +58,7 @@
 			children = (
 				928B22481E7F071000B284C0 /* AppDelegate.swift */,
 				928B224A1E7F071000B284C0 /* ViewController.swift */,
+				928B22571E7F08A600B284C0 /* WebCellView.swift */,
 				928B224C1E7F071000B284C0 /* Assets.xcassets */,
 				928B224E1E7F071000B284C0 /* Main.storyboard */,
 				928B22511E7F071000B284C0 /* Info.plist */,
@@ -132,6 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				928B22581E7F08A600B284C0 /* WebCellView.swift in Sources */,
 				928B224B1E7F071000B284C0 /* ViewController.swift in Sources */,
 				928B22491E7F071000B284C0 /* AppDelegate.swift in Sources */,
 			);
@@ -286,6 +292,7 @@
 				928B22561E7F071000B284C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

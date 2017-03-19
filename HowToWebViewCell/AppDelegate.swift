@@ -3,7 +3,7 @@
 //  HowToWebViewCell
 //
 //  Created by Denis Hennessy on 19/03/2017.
-//  Copyright © 2017 Denis Hennessy. All rights reserved.
+//  Copyright © 2017 Peer Assembly. All rights reserved.
 //
 
 import Cocoa
