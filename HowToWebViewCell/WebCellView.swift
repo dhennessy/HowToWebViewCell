@@ -13,34 +13,38 @@ class WebCellView: NSTableCellView {
 
     var onSizeChanged: ((CGFloat) -> ())?
     fileprivate let margins = CGFloat(6)
-    fileprivate var observerContext = 0
-    fileprivate let frameKeyPath = #keyPath(WebView.mainFrame.frameView.documentView.frame)
-
+    fileprivate var lastHeight: CGFloat = 0
+    fileprivate var lastWidth: CGFloat = 0
     @IBOutlet weak var webView: WebView!
     
-    deinit {
-        webView.removeObserver(self, forKeyPath: frameKeyPath)
+    override var frame: NSRect {
+        didSet {
+            if frame.size.width != lastWidth {
+                let height = webView.mainFrame.frameView.documentView.frame.height
+                handleHeightChange(height: height)
+            }
+        }
     }
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
 
         webView.frameLoadDelegate = self
-        webView.addObserver(self, forKeyPath: frameKeyPath, options: [.new, .old] , context: &observerContext)
-    }
-    
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if let keyPath = keyPath, keyPath == frameKeyPath {
-            onSizeChanged?(webView.mainFrame.frameView.documentView.frame.height + margins)
-        }
+        webView.mainFrame.frameView.allowsScrolling = false
     }
 
+    func handleHeightChange(height: CGFloat) {
+        if height != lastHeight {
+            lastHeight = height
+            onSizeChanged?(height)
+        }
+    }
 }
 
 extension WebCellView: WebFrameLoadDelegate {
     
     func webView(_ sender: WebView!, didFinishLoadFor frame: WebFrame!) {
-        onSizeChanged?(webView.mainFrame.frameView.documentView.frame.height + margins)
+        handleHeightChange(height: webView.mainFrame.frameView.documentView.frame.height + margins)
     }
     
 }

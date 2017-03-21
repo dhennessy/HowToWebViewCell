@@ -45,9 +45,11 @@ extension ViewController: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let webCellView = tableView.make(withIdentifier: "WebCellView", owner: self) as! WebCellView
         webCellView.onSizeChanged = { height in
-            Swift.print("Height of row \(row): \(height)")
             self.setRowHeight(height, forRow: row)
+            NSAnimationContext.beginGrouping()
+            NSAnimationContext.current().duration = 0
             tableView.noteHeightOfRows(withIndexesChanged: IndexSet(integer: row))
+            NSAnimationContext.endGrouping()
         }
         let html = makeTestHtml(row: row)
         webCellView.webView.mainFrame.loadHTMLString(html, baseURL: nil)
