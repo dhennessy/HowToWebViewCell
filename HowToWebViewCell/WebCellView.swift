@@ -36,7 +36,7 @@ class WebCellView: NSTableCellView {
     func handleHeightChange(height: CGFloat) {
         if height != lastHeight {
             lastHeight = height
-            onSizeChanged?(height)
+            onSizeChanged?(height + margins)
         }
     }
 }
@@ -44,7 +44,7 @@ class WebCellView: NSTableCellView {
 extension WebCellView: WebFrameLoadDelegate {
     
     func webView(_ sender: WebView!, didFinishLoadFor frame: WebFrame!) {
-        handleHeightChange(height: webView.mainFrame.frameView.documentView.frame.height + margins)
+        handleHeightChange(height: webView.mainFrame.frameView.documentView.frame.height)
     }
     
 }

@@ -27,7 +27,7 @@ class ViewController: NSViewController {
 extension ViewController: NSTableViewDataSource {
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return 10
+        return 1
     }
     
 }
